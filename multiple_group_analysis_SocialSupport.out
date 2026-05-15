@@ -1,0 +1,281 @@
+Mplus VERSION 8
+MUTHEN & MUTHEN
+05/13/2026  11:45 AM
+
+INPUT INSTRUCTIONS
+
+  Data:
+      FILE IS parent_child_data.dat;
+
+  VARIABLE:
+      NAMES ARE sep fa ma dep anx ps pes ss faps fapes fass maps mapes mass;
+      USEVARIABLES ARE fa ma dep ps pes ss faps fapes fass maps mapes mass;
+
+      GROUPING IS sep (1=separated 2=non-separated);
+
+  DEFINE:
+      faps = fa * ps;
+      fapes = fa * pes;
+      fass = fa * ss;
+      maps = ma * ps;
+      mapes = ma * pes;
+      mass = ma * ss;
+
+  MODEL:
+      dep ON fa;
+      dep ON ma;
+      dep ON ps;
+      dep ON pes;
+      dep ON ss;
+      dep ON faps;
+      dep ON fapes;
+      dep ON fass;
+      dep ON maps;
+      dep ON mapes;
+      dep ON mass;
+
+  !MODEL CONSTRAINT:
+
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group SEPARATED                                             124
+   Group NON-SEPARATED                                         147
+   Total sample size                                           271
+
+Number of dependent variables                                    1
+Number of independent variables                                 11
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   DEP
+
+Observed independent variables
+   FA          MA          PS          PES         SS          FAPS
+   FAPES       FASS        MAPS        MAPES       MASS
+
+Variables with special functions
+
+  Grouping variable     SEP
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  parent_child_data.dat
+
+Input data format  FREE
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR SEPARATED
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     DEP                   3.006      -0.455       1.400    1.61%       2.500      3.000      3.000
+             124.000       0.401      -0.228       4.000   11.29%       3.200      3.500
+     FA                    3.731      -0.560       1.000    1.61%       3.000      3.600      4.000
+             124.000       0.757       0.199       5.000   11.29%       4.000      4.600
+     MA                    3.962      -0.572       2.000    2.42%       3.333      4.000      4.000
+             124.000       0.649      -0.272       5.000   17.74%       4.000      4.800
+     PS                    3.869      -0.193       2.700    0.81%       3.400      3.800      3.900
+             124.000       0.272      -0.290       5.000    3.23%       4.000      4.300
+     PES                   1.452       1.721       1.000   33.06%       1.000      1.111      1.222
+             124.000       0.301       3.585       4.000    0.81%       1.444      1.889
+     SS                    1.564       1.466       1.000   28.23%       1.000      1.286      1.429
+             124.000       0.370       2.593       4.000    0.81%       1.571      2.000
+     FAPS                 14.639       0.182       3.600    0.81%      10.660     13.260     14.400
+             124.000      21.710      -0.391      25.000    2.42%      15.600     18.480
+     FAPES                 5.291       1.000       1.333    0.81%       3.667      4.444      4.944
+             124.000       3.962       1.090      12.600    0.81%       5.185      6.667
+     FASS                  5.678       1.077       2.000    1.61%       4.000      4.600      5.014
+             124.000       4.876       1.385      14.400    0.81%       5.714      7.543
+     MAPS                 15.507       0.120       6.400    0.81%      11.780     14.040     15.200
+             124.000      19.793      -0.598      25.000    2.42%      16.400     19.320
+     MAPES                 5.674       1.260       2.000    1.61%       4.000      4.889      5.000
+             124.000       4.748       2.315      14.400    0.81%       5.778      7.333
+     MASS                  6.098       1.674       2.000    1.61%       4.000      5.000      5.486
+             124.000       6.053       5.617      19.200    0.81%       6.286      7.886
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR NON-SEPARATED
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     DEP                   3.135      -0.175       1.400    0.68%       2.600      3.000      3.000
+             147.000       0.402      -0.668       4.000   23.13%       3.200      4.000
+     FA                    3.985      -0.721       1.000    0.68%       3.200      4.000      4.000
+             147.000       0.780       0.156       5.000   23.81%       4.200      5.000
+     MA                    4.228      -0.795       2.000    0.68%       3.800      4.000      4.400
+             147.000       0.577      -0.214       5.000   30.61%       4.600      5.000
+     PS                    3.862      -0.602       1.300    0.68%       3.300      3.800      3.900
+             147.000       0.350       1.516       5.000    2.72%       4.000      4.300
+     PES                   1.346       2.432       1.000   36.05%       1.000      1.111      1.222
+             147.000       0.216       7.731       3.778    0.68%       1.333      1.556
+     SS                    1.445       1.861       1.000   40.82%       1.000      1.000      1.286
+             147.000       0.348       3.899       4.000    0.68%       1.286      1.857
+     FAPS                 15.573      -0.150       3.000    0.68%      11.400     14.720     15.840
+             147.000      22.290      -0.396      25.000    2.04%      16.720     20.000
+     FAPES                 5.271       1.865       1.556    0.68%       4.000      4.600      5.000
+             147.000       3.800       5.598      14.400    0.68%       5.000      6.222
+     FASS                  5.635       1.595       2.000    0.68%       4.000      4.886      5.000
+             147.000       5.534       3.183      15.200    0.68%       5.143      7.143
+     MAPS                 16.514      -0.247       4.940    0.68%      12.240     15.600     16.340
+             147.000      20.095      -0.453      25.000    2.04%      17.600     20.000
+     MAPES                 5.631       1.657       2.600    0.68%       4.000      5.000      5.000
+             147.000       3.939       4.085      14.400    0.68%       5.489      7.000
+     MASS                  6.064       1.418       2.600    0.68%       4.000      5.000      5.000
+             147.000       6.577       1.872      15.200    0.68%       5.714      7.857
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       26
+
+Loglikelihood
+
+          H0 Value                        -186.608
+          H1 Value                        -186.608
+
+Information Criteria
+
+          Akaike (AIC)                     425.217
+          Bayesian (BIC)                   518.872
+          Sample-Size Adjusted BIC         436.434
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+
+Chi-Square Contribution From Each Group
+
+          SEPARATED                          0.000
+          NON-SEPARATED                      0.000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            148.551
+          Degrees of Freedom                    22
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group SEPARATED
+
+ DEP      ON
+    FA                 0.441      0.606      0.729      0.466
+    MA                 0.034      0.612      0.056      0.955
+    PS                -0.062      0.510     -0.122      0.903
+    PES               -1.162      0.880     -1.321      0.187
+    SS                 1.221      0.875      1.395      0.163
+    FAPS               0.023      0.137      0.171      0.865
+    FAPES             -0.206      0.230     -0.895      0.371
+    FASS              -0.093      0.239     -0.390      0.697
+    MAPS              -0.003      0.149     -0.019      0.985
+    MAPES              0.464      0.261      1.779      0.075
+    MASS              -0.246      0.261     -0.944      0.345
+
+ Intercepts
+    DEP                1.425      2.156      0.661      0.509
+
+ Residual Variances
+    DEP                0.261      0.033      7.874      0.000
+
+Group NON-SEPARATED
+
+ DEP      ON
+    FA                -0.262      0.476     -0.551      0.582
+    MA                 0.767      0.571      1.342      0.180
+    PS                -0.164      0.379     -0.433      0.665
+    PES                1.650      0.883      1.868      0.062
+    SS                -1.146      0.721     -1.590      0.112
+    FAPS              -0.046      0.109     -0.420      0.675
+    FAPES              0.351      0.191      1.839      0.066
+    FASS               0.026      0.132      0.199      0.842
+    MAPS               0.096      0.127      0.752      0.452
+    MAPES             -0.772      0.262     -2.950      0.003
+    MASS               0.241      0.181      1.326      0.185
+
+ Intercepts
+    DEP                1.031      1.495      0.690      0.490
+
+ Residual Variances
+    DEP                0.210      0.024      8.573      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.376E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\frcd_lab_umassmedicalschool\r00\multiple_group_analysis\multiple_group_analysis_socialsupport_lifequality.dgm
+
+     Beginning Time:  11:45:57
+        Ending Time:  11:45:58
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen

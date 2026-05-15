@@ -1,0 +1,32 @@
+Data:
+    FILE IS parent_child_data.dat;
+
+VARIABLE:
+    NAMES ARE sep fa ma dep anx ps pes ss faps fapes fass maps mapes mass;
+    USEVARIABLES ARE fa ma dep ps pes ss faps fapes fass maps mapes mass;
+
+    GROUPING IS sep (1=separated 2=non-separated);
+ 
+DEFINE:
+    faps = fa * ps;
+    fapes = fa * pes;
+    fass = fa * ss;
+    maps = ma * ps;
+    mapes = ma * pes;
+    mass = ma * ss;
+
+MODEL:
+    dep ON fa; 
+    dep ON ma; 
+    dep ON ps; 
+    dep ON pes; 
+    dep ON ss;
+    dep ON faps; 
+    dep ON fapes; 
+    dep ON fass;
+    dep ON maps; 
+    dep ON mapes; 
+    dep ON mass;
+
+!MODEL CONSTRAINT:
+
