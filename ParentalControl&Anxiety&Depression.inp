@@ -1,0 +1,71 @@
+ TITLE: Parental Control and Sleep Anxiety
+
+  Data:
+      FILE IS parent_child_data_Mplus.dat;
+
+  VARIABLE:
+      NAMES ARE P_ID F_ID c_id c_sex cage edu p_mh sep_s s_len psych_c pcontrol 
+                pc_neg bully racism life_qua
+                mcatt fcatt p_supp peer_supp sch_supp tea_supp c_dep c_anx sleep
+                sui_12 sui_13 er_cog er_exp cope_pe cope_pd cope_ee cope_ed bully_c
+                racism_c fcatt_c mcatt_c p_supp_c pe_sup_c s_supp_c t_sup_c bullyps
+                bullpes bullysc bullyts bullyma bullyfa rac_ps rac_pes rac_sc rac_ts
+                rac_ma rac_fa psych_cc pc_neg_c er_cog_c er_exp_c conercog conerexp
+                negercog negerexp negercpe negerced female;
+                
+       MISSING = .;
+
+      USEVARIABLES ARE cage edu p_mh  pc_neg er_cog  
+                       cope_pe negercog  negercpe 
+                       life_qua female; 
+                       !c_anx conercog conerexp  
+                       ! psych_c  negercpe negerced psych_c cope_ed 
+                       ! negerced er_exp negerexp
+
+      GROUPING IS sep_s (1=separated 2=non-separated);
+
+ ANALYSIS:
+        
+        ESTIMATOR = MLR;
+
+ MODEL:
+      !life_qua ON psych_c;
+      life_qua ON pc_neg;
+
+      life_qua ON er_cog;
+     ! life_qua ON er_exp;
+
+     ! c_anx ON psych_c;
+    !  c_anx ON pc_neg;
+
+      life_qua ON cope_pe;
+    ! life_qua ON cope_ed;
+
+     ! c_anx ON er_cog;
+     ! c_anx ON er_exp;
+
+      life_qua ON negercpe;
+     ! life_qua ON negerced;
+
+     ! c_anx ON conercog;
+     ! c_anx ON conerexp;
+
+      life_qua ON negercog;
+     ! life_qua ON negerexp;
+
+     ! c_anx ON negercog;
+     ! c_anx ON negerexp;
+
+    
+
+     life_qua ON female;
+     life_qua ON cage;
+     life_qua ON edu;
+     life_qua ON p_mh;
+     
+ 
+
+
+  OUTPUT:
+      cinterval;
+      STANDARDIZED;

@@ -1,0 +1,723 @@
+Mplus VERSION 8
+MUTHEN & MUTHEN
+06/03/2026  11:38 AM
+
+INPUT INSTRUCTIONS
+
+   TITLE: Parental Control and Sleep Anxiety
+
+    Data:
+        FILE IS parent_child_data_Mplus.dat;
+
+    VARIABLE:
+        NAMES ARE P_ID F_ID c_id c_sex cage edu p_mh sep_s s_len psych_c pcontrol
+                  pc_neg bully racism life_qua
+                  mcatt fcatt p_supp peer_supp sch_supp tea_supp c_dep c_anx sleep
+                  sui_12 sui_13 er_cog er_exp cope_pe cope_pd cope_ee cope_ed bully_c
+                  racism_c fcatt_c mcatt_c p_supp_c pe_sup_c s_supp_c t_sup_c bullyps
+                  bullpes bullysc bullyts bullyma bullyfa rac_ps rac_pes rac_sc rac_ts
+                  rac_ma rac_fa psych_cc pc_neg_c er_cog_c er_exp_c conercog conerexp
+                  negercog negerexp negercpe negerced female;
+
+         MISSING = .;
+
+        USEVARIABLES ARE cage edu p_mh  pc_neg er_cog
+                         cope_pe negercog  negercpe
+                         life_qua female;
+                         !c_anx conercog conerexp
+                         ! psych_c  negercpe negerced psych_c cope_ed
+                         ! negerced er_exp negerexp
+
+        GROUPING IS sep_s (1=separated 2=non-separated);
+
+   ANALYSIS:
+
+          ESTIMATOR = MLR;
+
+   MODEL:
+        !life_qua ON psych_c;
+        life_qua ON pc_neg;
+
+        life_qua ON er_cog;
+       ! life_qua ON er_exp;
+
+       ! c_anx ON psych_c;
+      !  c_anx ON pc_neg;
+
+        life_qua ON cope_pe;
+      ! life_qua ON cope_ed;
+
+       ! c_anx ON er_cog;
+       ! c_anx ON er_exp;
+
+        life_qua ON negercpe;
+       ! life_qua ON negerced;
+
+       ! c_anx ON conercog;
+       ! c_anx ON conerexp;
+
+        life_qua ON negercog;
+       ! life_qua ON negerexp;
+
+       ! c_anx ON negercog;
+       ! c_anx ON negerexp;
+
+
+
+       life_qua ON female;
+       life_qua ON cage;
+       life_qua ON edu;
+       life_qua ON p_mh;
+
+
+
+
+    OUTPUT:
+        cinterval;
+        STANDARDIZED;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  9
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Parental Control and Sleep Anxiety
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 2
+Number of observations
+   Group SEPARATED                                             110
+   Group NON-SEPARATED                                         115
+   Total sample size                                           225
+
+Number of dependent variables                                    1
+Number of independent variables                                  9
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   LIFE_QUA
+
+Observed independent variables
+   CAGE        EDU         P_MH        PC_NEG      ER_COG      COPE_PE
+   NEGERCOG    NEGERCPE    FEMALE
+
+Variables with special functions
+
+  Grouping variable     SEP_S
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+
+Input data file(s)
+  parent_child_data_Mplus.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+   Group SEPARATED
+     Number of missing data patterns             1
+
+   Group NON-SEPARATED
+     Number of missing data patterns             1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR SEPARATED
+
+
+           Covariance Coverage
+              LIFE_QUA      CAGE          EDU           P_MH          PC_NEG
+              ________      ________      ________      ________      ________
+ LIFE_QUA       1.000
+ CAGE           1.000         1.000
+ EDU            1.000         1.000         1.000
+ P_MH           1.000         1.000         1.000         1.000
+ PC_NEG         1.000         1.000         1.000         1.000         1.000
+ ER_COG         1.000         1.000         1.000         1.000         1.000
+ COPE_PE        1.000         1.000         1.000         1.000         1.000
+ NEGERCOG       1.000         1.000         1.000         1.000         1.000
+ NEGERCPE       1.000         1.000         1.000         1.000         1.000
+ FEMALE         1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ER_COG        COPE_PE       NEGERCOG      NEGERCPE      FEMALE
+              ________      ________      ________      ________      ________
+ ER_COG         1.000
+ COPE_PE        1.000         1.000
+ NEGERCOG       1.000         1.000         1.000
+ NEGERCPE       1.000         1.000         1.000         1.000
+ FEMALE         1.000         1.000         1.000         1.000         1.000
+
+
+     PROPORTION OF DATA PRESENT FOR NON-SEPARATED
+
+
+           Covariance Coverage
+              LIFE_QUA      CAGE          EDU           P_MH          PC_NEG
+              ________      ________      ________      ________      ________
+ LIFE_QUA       1.000
+ CAGE           1.000         1.000
+ EDU            1.000         1.000         1.000
+ P_MH           1.000         1.000         1.000         1.000
+ PC_NEG         1.000         1.000         1.000         1.000         1.000
+ ER_COG         1.000         1.000         1.000         1.000         1.000
+ COPE_PE        1.000         1.000         1.000         1.000         1.000
+ NEGERCOG       1.000         1.000         1.000         1.000         1.000
+ NEGERCPE       1.000         1.000         1.000         1.000         1.000
+ FEMALE         1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              ER_COG        COPE_PE       NEGERCOG      NEGERCPE      FEMALE
+              ________      ________      ________      ________      ________
+ ER_COG         1.000
+ COPE_PE        1.000         1.000
+ NEGERCOG       1.000         1.000         1.000
+ NEGERCPE       1.000         1.000         1.000         1.000
+ FEMALE         1.000         1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR SEPARATED
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     LIFE_QUA             74.432      -0.251      41.333    0.91%      61.333     69.333     76.667
+             110.000     216.258      -0.931      99.333    1.82%      80.000     89.333
+     CAGE                 14.382       0.126      11.000    0.91%      13.000     14.000     14.000
+             110.000       3.109      -1.115      18.000    1.82%      15.000     16.000
+     EDU                   2.064       1.359       1.000   38.18%       1.000      2.000      2.000
+             110.000       1.441       1.434       6.000    1.82%       2.000      3.000
+     P_MH                 11.950       0.923       7.000    0.91%       8.000      9.500     11.000
+             110.000      16.109      -0.071      23.000    0.91%      11.500     15.500
+     PC_NEG                1.906       0.693       1.000    4.55%       1.444      1.667      1.778
+             110.000       0.268       0.423       3.556    0.91%       2.000      2.333
+     ER_COG                4.459      -0.280       1.000    0.91%       3.333      4.167      4.583
+             110.000       1.591      -0.402       7.000    1.82%       5.000      5.500
+     COPE_PE               2.859      -0.210       1.000    5.45%       2.250      2.750      3.000
+             110.000       0.704       0.200       5.000    0.91%       3.000      3.500
+     NEGERCOG              0.060       0.240      -2.230    0.91%      -0.197     -0.005      0.037
+             110.000       0.425       4.806       2.888    0.91%       0.121      0.385
+     NEGERCPE              0.262       0.394      -3.198    0.91%      -0.932     -0.133     -0.035
+             110.000       2.045       0.352       4.602    0.91%       0.451      1.468
+     FEMALE                0.527      -0.109       0.000   47.27%       0.000      0.000      1.000
+             110.000       0.249      -1.988       1.000   52.73%       1.000      1.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR NON-SEPARATED
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     LIFE_QUA             77.743      -0.834      32.000    0.87%      65.333     74.667     80.000
+             115.000     218.451       0.418      99.333    0.87%      82.667     90.667
+     CAGE                 13.939       0.346      11.000    0.87%      12.000     13.000     14.000
+             115.000       2.614      -1.046      17.000    7.83%      14.000     15.000
+     EDU                   2.843       0.273       1.000   21.74%       1.000      2.000      2.000
+             115.000       2.115      -1.260       6.000    0.87%       3.000      4.000
+     P_MH                 10.896       1.217       6.500    0.87%       8.000      9.000     10.000
+             115.000      10.472       1.594      24.000    0.87%      11.000     13.500
+     PC_NEG                1.678       0.625       1.000   20.87%       1.000      1.444      1.667
+             115.000       0.312      -0.333       3.111    1.74%       1.778      2.111
+     ER_COG                4.756      -0.387       1.000    0.87%       4.000      4.500      4.833
+             115.000       1.069       1.112       7.000    2.61%       5.000      5.500
+     COPE_PE               2.993      -0.336       1.000    2.61%       2.250      3.000      3.000
+             115.000       0.714      -0.086       5.000    1.74%       3.250      3.750
+     NEGERCOG             -0.054      -0.031      -2.936    0.87%      -0.336     -0.116     -0.035
+             115.000       0.360       8.619       2.888    0.87%       0.013      0.223
+     NEGERCPE             -0.492       0.345      -3.997    0.87%      -2.199     -1.065     -0.432
+             115.000       2.949      -0.200       4.202    0.87%      -0.076      0.857
+     FEMALE                0.539      -0.157       0.000   46.09%       0.000      0.000      1.000
+             115.000       0.248      -1.975       1.000   53.91%       1.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       22
+
+Loglikelihood
+
+          H0 Value                        -862.063
+          H0 Scaling Correction Factor      1.1095
+            for MLR
+          H1 Value                        -862.063
+          H1 Scaling Correction Factor      1.1095
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    1768.126
+          Bayesian (BIC)                  1843.280
+          Sample-Size Adjusted BIC        1773.558
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000*
+          Degrees of Freedom                     0
+          P-Value                           0.0000
+          Scaling Correction Factor         1.0000
+            for MLR
+
+Chi-Square Contribution From Each Group
+
+          SEPARATED                          0.000
+          NON-SEPARATED                      0.000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.000
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            109.124
+          Degrees of Freedom                    18
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG           -18.710      8.798     -2.127      0.033
+    ER_COG             1.917      1.049      1.827      0.068
+    COPE_PE            2.934      1.779      1.649      0.099
+    NEGERCPE           3.186      3.190      0.999      0.318
+    NEGERCOG          -1.134      2.368     -0.479      0.632
+    FEMALE             4.986      2.415      2.065      0.039
+    CAGE              -1.276      0.827     -1.544      0.123
+    EDU               -0.616      0.855     -0.721      0.471
+    P_MH              -0.822      0.296     -2.780      0.005
+
+ Intercepts
+    LIFE_QUA         119.209     16.756      7.115      0.000
+
+ Residual Variances
+    LIFE_QUA         144.936     18.754      7.728      0.000
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG            -7.444      7.401     -1.006      0.315
+    ER_COG             3.258      0.996      3.272      0.001
+    COPE_PE            4.275      1.539      2.778      0.005
+    NEGERCPE           0.784      2.232      0.351      0.725
+    NEGERCOG          -5.018      2.165     -2.317      0.020
+    FEMALE            -6.444      1.909     -3.377      0.001
+    CAGE              -0.456      0.557     -0.818      0.413
+    EDU                0.350      0.771      0.454      0.650
+    P_MH              -1.832      0.432     -4.242      0.000
+
+ Intercepts
+    LIFE_QUA          90.855     18.736      4.849      0.000
+
+ Residual Variances
+    LIFE_QUA         107.747     15.073      7.148      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG            -0.659      0.314     -2.098      0.036
+    ER_COG             0.164      0.090      1.828      0.068
+    COPE_PE            0.167      0.100      1.679      0.093
+    NEGERCPE           0.310      0.312      0.994      0.320
+    NEGERCOG          -0.050      0.106     -0.476      0.634
+    FEMALE             0.169      0.081      2.078      0.038
+    CAGE              -0.153      0.098     -1.560      0.119
+    EDU               -0.050      0.070     -0.720      0.472
+    P_MH              -0.224      0.082     -2.729      0.006
+
+ Intercepts
+    LIFE_QUA           8.107      1.207      6.715      0.000
+
+ Residual Variances
+    LIFE_QUA           0.670      0.077      8.662      0.000
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG            -0.281      0.281     -1.001      0.317
+    ER_COG             0.228      0.071      3.209      0.001
+    COPE_PE            0.244      0.089      2.748      0.006
+    NEGERCPE           0.091      0.260      0.351      0.726
+    NEGERCOG          -0.204      0.093     -2.200      0.028
+    FEMALE            -0.217      0.064     -3.387      0.001
+    CAGE              -0.050      0.062     -0.805      0.421
+    EDU                0.034      0.075      0.457      0.648
+    P_MH              -0.401      0.089     -4.519      0.000
+
+ Intercepts
+    LIFE_QUA           6.147      1.373      4.477      0.000
+
+ Residual Variances
+    LIFE_QUA           0.493      0.064      7.653      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG            -1.272      0.601     -2.116      0.034
+    ER_COG             0.130      0.071      1.838      0.066
+    COPE_PE            0.199      0.118      1.691      0.091
+    NEGERCPE           0.217      0.217      0.996      0.319
+    NEGERCOG          -0.077      0.162     -0.477      0.633
+    FEMALE             0.339      0.163      2.078      0.038
+    CAGE              -0.087      0.055     -1.564      0.118
+    EDU               -0.042      0.058     -0.721      0.471
+    P_MH              -0.056      0.020     -2.771      0.006
+
+ Intercepts
+    LIFE_QUA           8.107      1.207      6.715      0.000
+
+ Residual Variances
+    LIFE_QUA           0.670      0.077      8.662      0.000
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG            -0.504      0.503     -1.002      0.316
+    ER_COG             0.220      0.067      3.297      0.001
+    COPE_PE            0.289      0.104      2.775      0.006
+    NEGERCPE           0.053      0.151      0.351      0.726
+    NEGERCOG          -0.340      0.147     -2.311      0.021
+    FEMALE            -0.436      0.129     -3.388      0.001
+    CAGE              -0.031      0.038     -0.805      0.421
+    EDU                0.024      0.052      0.457      0.648
+    P_MH              -0.124      0.026     -4.793      0.000
+
+ Intercepts
+    LIFE_QUA           6.147      1.373      4.477      0.000
+
+ Residual Variances
+    LIFE_QUA           0.493      0.064      7.653      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG           -18.710      8.798     -2.127      0.033
+    ER_COG             1.917      1.049      1.827      0.068
+    COPE_PE            2.934      1.779      1.649      0.099
+    NEGERCPE           3.186      3.190      0.999      0.318
+    NEGERCOG          -1.134      2.368     -0.479      0.632
+    FEMALE             4.986      2.415      2.065      0.039
+    CAGE              -1.276      0.827     -1.544      0.123
+    EDU               -0.616      0.855     -0.721      0.471
+    P_MH              -0.822      0.296     -2.780      0.005
+
+ Intercepts
+    LIFE_QUA         119.209     16.756      7.115      0.000
+
+ Residual Variances
+    LIFE_QUA         144.936     18.754      7.728      0.000
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG            -7.444      7.401     -1.006      0.315
+    ER_COG             3.258      0.996      3.272      0.001
+    COPE_PE            4.275      1.539      2.778      0.005
+    NEGERCPE           0.784      2.232      0.351      0.725
+    NEGERCOG          -5.018      2.165     -2.317      0.020
+    FEMALE            -6.444      1.909     -3.377      0.001
+    CAGE              -0.456      0.557     -0.818      0.413
+    EDU                0.350      0.771      0.454      0.650
+    P_MH              -1.832      0.432     -4.242      0.000
+
+ Intercepts
+    LIFE_QUA          90.855     18.736      4.849      0.000
+
+ Residual Variances
+    LIFE_QUA         107.747     15.073      7.148      0.000
+
+
+R-SQUARE
+
+Group SEPARATED
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    LIFE_QUA           0.330      0.077      4.261      0.000
+
+Group NON-SEPARATED
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    LIFE_QUA           0.507      0.064      7.862      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.393E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG         -41.372     -35.954     -33.183     -18.710      -4.237      -1.465       3.953
+    ER_COG          -0.785      -0.139       0.191       1.917       3.642       3.973       4.619
+    COPE_PE         -1.648      -0.553       0.008       2.934       5.860       6.420       7.515
+    NEGERCPE        -5.032      -3.067      -2.062       3.186       8.434       9.439      11.403
+    NEGERCOG        -7.234      -5.775      -5.029      -1.134       2.762       3.508       4.967
+    FEMALE          -1.235       0.252       1.013       4.986       8.959       9.720      11.207
+    CAGE            -3.406      -2.897      -2.636      -1.276       0.084       0.344       0.853
+    EDU             -2.818      -2.292      -2.023      -0.616       0.790       1.059       1.586
+    P_MH            -1.584      -1.402      -1.309      -0.822      -0.336      -0.242      -0.060
+
+ Intercepts
+    LIFE_QUA        76.050      86.368      91.646     119.209     146.772     152.050     162.369
+
+ Residual Variances
+    LIFE_QUA        96.630     108.179     114.086     144.936     175.785     181.693     193.241
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG         -26.507     -21.950     -19.619      -7.444       4.731       7.062      11.620
+    ER_COG           0.693       1.307       1.620       3.258       4.896       5.210       5.823
+    COPE_PE          0.311       1.258       1.743       4.275       6.806       7.291       8.239
+    NEGERCPE        -4.964      -3.590      -2.887       0.784       4.455       5.158       6.532
+    NEGERCOG       -10.595      -9.261      -8.579      -5.018      -1.456      -0.774       0.560
+    FEMALE         -11.361     -10.185      -9.584      -6.444      -3.305      -2.704      -1.528
+    CAGE            -1.892      -1.549      -1.373      -0.456       0.461       0.637       0.980
+    EDU             -1.636      -1.161      -0.918       0.350       1.619       1.862       2.336
+    P_MH            -2.944      -2.678      -2.542      -1.832      -1.122      -0.986      -0.720
+
+ Intercepts
+    LIFE_QUA        42.595      54.132      60.034      90.855     121.676     127.578     139.116
+
+ Residual Variances
+    LIFE_QUA        68.922      78.204      82.952     107.747     132.542     137.290     146.572
+
+
+CONFIDENCE INTERVALS OF STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG          -1.469      -1.275      -1.176      -0.659      -0.142      -0.043       0.150
+    ER_COG          -0.067      -0.012       0.016       0.164       0.312       0.341       0.396
+    COPE_PE         -0.089      -0.028       0.003       0.167       0.331       0.363       0.424
+    NEGERCPE        -0.493      -0.301      -0.203       0.310       0.822       0.921       1.112
+    NEGERCOG        -0.322      -0.257      -0.224      -0.050       0.123       0.157       0.222
+    FEMALE          -0.041       0.010       0.035       0.169       0.303       0.329       0.379
+    CAGE            -0.406      -0.345      -0.314      -0.153       0.008       0.039       0.100
+    EDU             -0.230      -0.187      -0.165      -0.050       0.065       0.087       0.130
+    P_MH            -0.436      -0.386      -0.360      -0.224      -0.089      -0.063      -0.013
+
+ Intercepts
+    LIFE_QUA         4.997       5.741       6.121       8.107      10.093      10.473      11.216
+
+ Residual Variances
+    LIFE_QUA         0.471       0.519       0.543       0.670       0.798       0.822       0.870
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG          -1.006      -0.833      -0.744      -0.281       0.181       0.270       0.443
+    ER_COG           0.045       0.089       0.111       0.228       0.345       0.367       0.411
+    COPE_PE          0.015       0.070       0.098       0.244       0.391       0.419       0.473
+    NEGERCPE        -0.578      -0.418      -0.336       0.091       0.518       0.600       0.760
+    NEGERCOG        -0.442      -0.385      -0.356      -0.204      -0.051      -0.022       0.035
+    FEMALE          -0.383      -0.343      -0.323      -0.217      -0.112      -0.092      -0.052
+    CAGE            -0.210      -0.171      -0.152      -0.050       0.052       0.072       0.110
+    EDU             -0.160      -0.113      -0.090       0.034       0.159       0.182       0.229
+    P_MH            -0.630      -0.575      -0.547      -0.401      -0.255      -0.227      -0.172
+
+ Intercepts
+    LIFE_QUA         2.610       3.456       3.889       6.147       8.406       8.839       9.684
+
+ Residual Variances
+    LIFE_QUA         0.327       0.367       0.387       0.493       0.599       0.620       0.659
+
+
+STDY Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG          -2.821      -2.451      -2.261      -1.272      -0.283      -0.094       0.276
+    ER_COG          -0.052      -0.009       0.014       0.130       0.247       0.269       0.313
+    COPE_PE         -0.104      -0.032       0.005       0.199       0.394       0.431       0.503
+    NEGERCPE        -0.343      -0.210      -0.141       0.217       0.574       0.643       0.777
+    NEGERCOG        -0.493      -0.394      -0.343      -0.077       0.189       0.240       0.339
+    FEMALE          -0.081       0.019       0.071       0.339       0.607       0.659       0.759
+    CAGE            -0.230      -0.196      -0.178      -0.087       0.004       0.022       0.056
+    EDU             -0.192      -0.156      -0.137      -0.042       0.054       0.072       0.108
+    P_MH            -0.108      -0.095      -0.089      -0.056      -0.023      -0.016      -0.004
+
+ Intercepts
+    LIFE_QUA         4.997       5.741       6.121       8.107      10.093      10.473      11.216
+
+ Residual Variances
+    LIFE_QUA         0.471       0.519       0.543       0.670       0.798       0.822       0.870
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG          -1.798      -1.489      -1.330      -0.504       0.323       0.482       0.791
+    ER_COG           0.048       0.089       0.110       0.220       0.330       0.352       0.393
+    COPE_PE          0.021       0.085       0.118       0.289       0.461       0.494       0.558
+    NEGERCPE        -0.336      -0.243      -0.196       0.053       0.302       0.349       0.443
+    NEGERCOG        -0.718      -0.627      -0.581      -0.340      -0.098      -0.052       0.039
+    FEMALE          -0.768      -0.688      -0.648      -0.436      -0.224      -0.184      -0.105
+    CAGE            -0.130      -0.106      -0.094      -0.031       0.032       0.044       0.068
+    EDU             -0.110      -0.078      -0.062       0.024       0.109       0.125       0.157
+    P_MH            -0.191      -0.175      -0.166      -0.124      -0.081      -0.073      -0.057
+
+ Intercepts
+    LIFE_QUA         2.610       3.456       3.889       6.147       8.406       8.839       9.684
+
+ Residual Variances
+    LIFE_QUA         0.327       0.367       0.387       0.493       0.599       0.620       0.659
+
+
+STD Standardization
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Group SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG         -41.372     -35.954     -33.183     -18.710      -4.237      -1.465       3.953
+    ER_COG          -0.785      -0.139       0.191       1.917       3.642       3.973       4.619
+    COPE_PE         -1.648      -0.553       0.008       2.934       5.860       6.420       7.515
+    NEGERCPE        -5.032      -3.067      -2.062       3.186       8.434       9.439      11.403
+    NEGERCOG        -7.234      -5.775      -5.029      -1.134       2.762       3.508       4.967
+    FEMALE          -1.235       0.252       1.013       4.986       8.959       9.720      11.207
+    CAGE            -3.406      -2.897      -2.636      -1.276       0.084       0.344       0.853
+    EDU             -2.818      -2.292      -2.023      -0.616       0.790       1.059       1.586
+    P_MH            -1.584      -1.402      -1.309      -0.822      -0.336      -0.242      -0.060
+
+ Intercepts
+    LIFE_QUA        76.050      86.368      91.646     119.209     146.772     152.050     162.369
+
+ Residual Variances
+    LIFE_QUA        96.630     108.179     114.086     144.936     175.785     181.693     193.241
+
+Group NON-SEPARATED
+
+ LIFE_QUA ON
+    PC_NEG         -26.507     -21.950     -19.619      -7.444       4.731       7.062      11.620
+    ER_COG           0.693       1.307       1.620       3.258       4.896       5.210       5.823
+    COPE_PE          0.311       1.258       1.743       4.275       6.806       7.291       8.239
+    NEGERCPE        -4.964      -3.590      -2.887       0.784       4.455       5.158       6.532
+    NEGERCOG       -10.595      -9.261      -8.579      -5.018      -1.456      -0.774       0.560
+    FEMALE         -11.361     -10.185      -9.584      -6.444      -3.305      -2.704      -1.528
+    CAGE            -1.892      -1.549      -1.373      -0.456       0.461       0.637       0.980
+    EDU             -1.636      -1.161      -0.918       0.350       1.619       1.862       2.336
+    P_MH            -2.944      -2.678      -2.542      -1.832      -1.122      -0.986      -0.720
+
+ Intercepts
+    LIFE_QUA        42.595      54.132      60.034      90.855     121.676     127.578     139.116
+
+ Residual Variances
+    LIFE_QUA        68.922      78.204      82.952     107.747     132.542     137.290     146.572
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    e:\frcd_lab_umassmedicalschool\r00\conceptualmodels\parentalcontrol&anxiety&depression\parentalcontrol&anxiety&depre
+
+     Beginning Time:  11:38:20
+        Ending Time:  11:38:21
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2017 Muthen & Muthen
