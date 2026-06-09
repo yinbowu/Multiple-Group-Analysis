@@ -11,13 +11,14 @@
                 racism_c fcatt_c mcatt_c p_supp_c pe_sup_c s_supp_c t_sup_c bullyps
                 bullpes bullysc bullyts bullyma bullyfa rac_ps rac_pes rac_sc rac_ts
                 rac_ma rac_fa psych_cc pc_neg_c er_cog_c er_exp_c conercog conerexp
-                negercog negerexp negercpe negerced female;
+                negercog negerexp negercpe negerced female emo_reg cope;
                 
        MISSING = .;
 
-      USEVARIABLES ARE cage edu p_mh  pc_neg er_cog  
-                       cope_pe negercog  negercpe 
-                       life_qua female; 
+      USEVARIABLES ARE cage edu p_mh  pc_neg er_cog er_exp 
+                       cope_pe cope_pd cope_ee cope_ed 
+                       c_dep life_qua female
+                       neg_er neg_cope ; 
                        !c_anx conercog conerexp  
                        ! psych_c  negercpe negerced psych_c cope_ed 
                        ! negerced er_exp negerexp
@@ -27,45 +28,77 @@
  ANALYSIS:
         
         ESTIMATOR = MLR;
+        
+ 
+ DEFINE: 
 
- MODEL:
-      !life_qua ON psych_c;
+        CENTER pc_neg (GRANDMEAN);
+       ! CENTER emo_reg (GRANDMEAN);
+       ! CENTER cope (GRANDMEAN);
+        neg_er = pc_neg * emo_reg;
+        neg_cope = pc_neg * cope;
+
+
+MODEL:
+
+!latent variable emo_reg & cope
+
+      
+      emo_reg BY er_cog@1
+                 er_exp;
+
+      cope BY cope_pe@1
+              cope_pd 
+              cope_ee 
+              cope_ed;
+
+
+
       life_qua ON pc_neg;
+      c_dep ON pc_neg;
 
-      life_qua ON er_cog;
-     ! life_qua ON er_exp;
+   
 
-     ! c_anx ON psych_c;
-    !  c_anx ON pc_neg;
+     
 
-      life_qua ON cope_pe;
-    ! life_qua ON cope_ed;
+      life_qua ON emo_reg;
+      c_dep ON emo_reg;
 
-     ! c_anx ON er_cog;
-     ! c_anx ON er_exp;
 
-      life_qua ON negercpe;
-     ! life_qua ON negerced;
+   
 
-     ! c_anx ON conercog;
-     ! c_anx ON conerexp;
+      life_qua ON cope;
+      c_dep ON cope;
 
-      life_qua ON negercog;
-     ! life_qua ON negerexp;
 
-     ! c_anx ON negercog;
-     ! c_anx ON negerexp;
 
-    
+      life_qua ON neg_er;
+      life_qua ON neg_cope;
+
+      c_dep ON neg_er;
+      c_dep ON neg_cope;
+
+
+      ! control variables
 
      life_qua ON female;
      life_qua ON cage;
      life_qua ON edu;
      life_qua ON p_mh;
-     
+
+
+     c_dep ON female;
+     c_dep ON cage;
+     c_dep ON edu;
+     c_dep ON p_mh;
+
+
+     cope WITH emo_reg;
+     pc_neg WITH cope;
+     pc_neg WITH emo_reg;
  
 
 
   OUTPUT:
-      cinterval;
+      ! cinterval;
       STANDARDIZED;
